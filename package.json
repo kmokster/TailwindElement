@@ -20,7 +20,9 @@
     "deploy": "npm run build:demo && cd dist-demo/ && mdb publish --override",
     "docs:install": "npm install && cd ./site && npm install && cd ../ && npm run build",
     "docs:start": "cd ./site && npm start",
-    "test": "jest",
+    "test": "vitest",
+    "test:unit": "vitest run --coverage",
+    "test:watch": "vitest --watch",
     "lint": "lint-staged && pretty-quick"
   },
   "files": [
@@ -46,6 +48,7 @@
     "material design"
   ],
   "devDependencies": {
+    "@vitest/coverage-c8": "^0.30.1",
     "autoprefixer": "^10.4.13",
     "babel-eslint": "^10.1.0",
     "bestzip": "^2.2.0",
@@ -68,7 +71,8 @@
     "sass-loader": "^8.0.2",
     "shelljs": "^0.8.5",
     "postcss": "^8.4.21",
-    "vite": "^4.1.0"
+    "vite": "^4.1.0",
+    "vitest": "^0.30.1"
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",

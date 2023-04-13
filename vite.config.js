@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import glob from "glob";
@@ -51,5 +52,19 @@ export default defineConfig({
       },
     },
     sourcemap: true,
+  },
+  test: {
+    environment: "jsdom",
+    watch: false,
+    coverage: {
+      reportsDirectory: "tests/coverage",
+      exclude: [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/dist-demo/**",
+        "**/dist-pure/**",
+        "**/test/**",
+      ],
+    },
   },
 });
